@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   COLOR ROOT VARIABLES
+========================= */
+
+:root {
+
+  /* Primary Brand Colors */
+  --color-primary: #7c3aed;
+  --color-primary-light: #a78bfa;
+  --color-primary-dark: #5b21b6;
+
+  /* Secondary Colors */
+  --color-secondary: #06b6d4;
+  --color-secondary-light: #67e8f9;
+  --color-secondary-dark: #0e7490;
+
+  /* Accent Colors */
+  --color-accent: #f59e0b;
+  --color-accent-light: #fcd34d;
+  --color-accent-dark: #d97706;
+
+  /* Background Colors */
+  --color-bg: #f9fafb;
+  --color-bg-secondary: #f3f4f6;
+  --color-bg-dark: #111827;
+
+  /* Text Colors */
+  --color-text: #111827;
+  --color-text-light: #6b7280;
+  --color-text-white: #ffffff;
+
+  /* Border */
+  --color-border: #e5e7eb;
+
+  /* Status Colors */
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+}
+
+.dark {
+
+  --color-bg: #111827;
+  --color-bg-secondary: #1f2937;
+
+  --color-text: #f9fafb;
+  --color-text-light: #9ca3af;
+
+  --color-border: #374151;
+
+}
+
+/* Apply Font Globally */
+body {
+  font-family: 'Inter', sans-serif;
+}
