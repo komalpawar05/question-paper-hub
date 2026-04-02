@@ -53,7 +53,6 @@ const DashboardCards: React.FC = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
       {/* LEFT SIDE (Parent Card) */}
       <div className="lg:col-span-2 bg-white p-6 rounded-3xl shadow-md border border-gray-100">
 
