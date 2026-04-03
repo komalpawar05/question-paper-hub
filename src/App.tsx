@@ -1,36 +1,12 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import AdminLayout from "./components/admin/layouts/AdminLayout";
-import Dashboard from "./pages/admin/AdminDashboard";
-import QuestionPaper from "./pages/admin/QuestionPapers";
-import Orders from "./pages/admin/Orders";
+
+import AppRoutes from "./routes/AppRoutes";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-
-        {/* Redirect root to admin dashboard */}
-        <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
-
-        {/* Admin Layout */}
-        <Route path="/admin" element={<AdminLayout />}>
-
-          {/* Default /admin route */}
-          <Route index element={<Navigate to="dashboard" replace />} />
-
-          {/* Admin Pages */}
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="question-papers" element={<QuestionPaper />} />
-          <Route path="orders" element={<Orders />} />
-
-        </Route>
-
-        {/* Fallback Route */}
-        <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
-
-      </Routes>
-    </BrowserRouter>
-  );
+<Toaster position="top-right" />
+  return <AppRoutes />;
 }
 
 export default App;
+
+

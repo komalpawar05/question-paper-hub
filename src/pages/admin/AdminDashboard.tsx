@@ -33,7 +33,7 @@ const AdminDashboard: React.FC = () => {
   ];
 
   return (
-    <div className="flex h-screen bg-gray-100 overflow-hidden">
+    <div className="flex  bg-gray-100 overflow-hidden">
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
@@ -46,7 +46,7 @@ const AdminDashboard: React.FC = () => {
         />
 
         {/* Dashboard Content */}
-        <main className="flex-1 overflow-y-auto p-4 space-y-4">
+        <main className="flex-1  p-4 space-y-4">
 
           {/* ✅ Cards Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
