@@ -1,10 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import Sidebar from "../layouts/Sidebar";
-
+import Topbar from "../layouts/Topbar"; // ✅ ADD THIS
 
 const AdminLayout = () => {
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -17,14 +16,18 @@ const AdminLayout = () => {
       />
 
       {/* Content */}
-      <div className="flex-1 flex flex-col">
+  <div className="flex-1 flex flex-col md:ml-64">
 
-        <main className="flex-1 bg-gray-100 overflow-y-auto">
-          <Outlet />
-        </main>
+    <Topbar
+      openSidebar={() => setSidebarOpen(true)}
+      isSidebarOpen={sidebarOpen}
+    />
 
-      </div>
+    <main className="flex-1 bg-gray-100 overflow-y-auto">
+      <Outlet />
+    </main>
 
+  </div>
     </div>
   );
 };

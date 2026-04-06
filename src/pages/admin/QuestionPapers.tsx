@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Topbar from "../../components/admin/layouts/Topbar";
 import GlobalFilter from "../../components/admin/common/GlobalFilter";
 import Table from "../../components/admin/table/tablelayout";
 import { FaEdit, FaTrash } from "react-icons/fa";
@@ -126,8 +125,6 @@ const QuestionPaper: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
-
-      <Topbar title="Question Papers" openSidebar={() => {}} />
 
       <div className="p-4 space-y-4">
 

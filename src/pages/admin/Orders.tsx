@@ -12,8 +12,6 @@ import { SlCalender } from "react-icons/sl";
 
 const Orders: React.FC = () => {
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   // ✅ Dynamic card data
   const cards = [
     {
@@ -44,12 +42,6 @@ const Orders: React.FC = () => {
 
   return (
     <div className="flex flex-col bg-gray-100 min-h-screen">
-
-      {/* Topbar */}
-      <Topbar
-        title="Orders Management"
-        openSidebar={() => setSidebarOpen(true)}
-      />
 
       {/* Content */}
       <div className="p-4 space-y-2">

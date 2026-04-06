@@ -1,4 +1,3 @@
-import LiveChart from "../../../components/admin/chart/LiveChart";
 import {
   FaChartLine,
   FaCalendarAlt,

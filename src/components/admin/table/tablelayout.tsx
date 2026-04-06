@@ -1,4 +1,5 @@
 import React from "react";
+import useIsMobile from "../../../hooks/useIsMobile";
 
 type Column<T> = {
   header: string;
@@ -19,68 +20,100 @@ function Table<T extends { id: number }>({
   columns,
   actionButton,
 }: Props<T>) {
+  const isMobile = useIsMobile();
+
   return (
-    <div className="bg-white rounded-2xl shadow-md p-5">
+    <div className="bg-white rounded-2xl shadow-md p-4 md:p-5">
 
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-5 gap-3">
-
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
         <h2 className="text-lg font-semibold text-gray-800">
           {title}
         </h2>
-
         {actionButton}
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
-
-        <table className="w-full border-separate border-spacing-y-2">
-
-          <thead>
-            <tr className="text-left text-gray-500 text-sm">
-              {columns.map((col, i) => (
-                <th key={i} className="px-4 py-2 font-medium">
-                  {col.header}
-                </th>
-              ))}
-            </tr>
-          </thead>
-
-          <tbody>
-            {data.length === 0 ? (
-              <tr>
-                <td
-                  colSpan={columns.length}
-                  className="text-center py-6 text-gray-400"
-                >
-                  No data found
-                </td>
-              </tr>
-            ) : (
-              data.map((row) => (
-                <tr
-                  key={row.id}
-                  className="bg-gray-50 hover:bg-gray-100 transition rounded-xl shadow-sm"
-                >
-                  {columns.map((col, i) => {
-                    const value = row[col.accessor];
-                    return (
-                      <td key={i} className="px-4 py-3">
+      {/* ================= MOBILE VIEW ================= */}
+      {isMobile ? (
+        <div className="space-y-3">
+          {data.length === 0 ? (
+            <p className="text-center text-gray-400 py-4">
+              No data found
+            </p>
+          ) : (
+            data.map((row) => (
+              <div
+                key={row.id}
+                className="bg-gray-50 rounded-xl p-4 shadow-sm space-y-2"
+              >
+                {columns.map((col, i) => {
+                  const value = row[col.accessor];
+                  return (
+                    <div key={i} className="flex justify-between gap-2">
+                      <span className="text-gray-500 text-sm">
+                        {col.header}
+                      </span>
+                      <span className="text-sm font-medium text-right">
                         {col.render
                           ? col.render(value, row)
                           : (value as React.ReactNode)}
-                      </td>
-                    );
-                  })}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            ))
+          )}
+        </div>
+      ) : (
+        /* ================= DESKTOP TABLE ================= */
+        <div className="overflow-x-auto">
+          <table className="w-full border-separate border-spacing-y-2">
+
+            <thead>
+              <tr className="text-left text-gray-500 text-sm">
+                {columns.map((col, i) => (
+                  <th key={i} className="px-4 py-2 font-medium">
+                    {col.header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+
+            <tbody>
+              {data.length === 0 ? (
+                <tr>
+                  <td
+                    colSpan={columns.length}
+                    className="text-center py-6 text-gray-400"
+                  >
+                    No data found
+                  </td>
                 </tr>
-              ))
-            )}
-          </tbody>
+              ) : (
+                data.map((row) => (
+                  <tr
+                    key={row.id}
+                    className="bg-gray-50 hover:bg-gray-100 transition rounded-xl shadow-sm"
+                  >
+                    {columns.map((col, i) => {
+                      const value = row[col.accessor];
+                      return (
+                        <td key={i} className="px-4 py-3">
+                          {col.render
+                            ? col.render(value, row)
+                            : (value as React.ReactNode)}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))
+              )}
+            </tbody>
 
-        </table>
-
-      </div>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
