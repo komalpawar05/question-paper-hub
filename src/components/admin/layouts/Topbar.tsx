@@ -1,5 +1,5 @@
-import { FaBars, FaBell, FaSignOutAlt } from "react-icons/fa";
-
+import { FaBars, FaSignOutAlt } from "react-icons/fa";
+import { PiStudentBold } from "react-icons/pi";
 type Props = {
   title?: string;
   openSidebar: () => void;
@@ -11,7 +11,6 @@ type Props = {
 const Topbar: React.FC<Props> = ({
   title = "Dashboard",
   openSidebar,
-  showNotification = true,
   showLogout = true,
   onLogout,
 }) => {
@@ -37,14 +36,23 @@ const Topbar: React.FC<Props> = ({
 
       {/* Right Section */}
       <div className="flex items-center gap-6 h-full">
+        {/* Student Portal */}
 
-        {/* Notification */}
-        {showNotification && (
-          <button className="relative text-gray-600 hover:text-black text-lg flex items-center">
-            <FaBell />
-            <span className="absolute -top-1 -right-1 bg-red-500 w-2 h-2 rounded-full"></span>
-          </button>
-        )}
+        <a
+          href="/student-portal"
+          className="text-sm font-medium text-gray-600 hover:text-blue-500 flex items-center gap-1"
+        >
+          <PiStudentBold size={18} /> Student Portal
+        </a>
+        {/* admin */}
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center text-sm font-medium text-gray-600">
+            A
+          </div>
+          <span className="hidden md:inline text-sm font-medium text-gray-600">
+            Admin
+          </span>
+        </div>
 
         {/* Logout */}
         {showLogout && (
