@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import Sidebar from "../layouts/Sidebar";
-import Topbar from "../layouts/Topbar"; // ✅ ADD THIS
+import Topbar from "../../Topbar";
+
 
 const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,6 +22,8 @@ const AdminLayout = () => {
     <Topbar
       openSidebar={() => setSidebarOpen(true)}
       isSidebarOpen={sidebarOpen}
+      title="Dashboard"
+      showLogout
     />
 
     <main className="flex-1 bg-gray-100 overflow-y-auto">
