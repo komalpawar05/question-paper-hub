@@ -23,6 +23,7 @@ const AppRoutes = () => {
       {/* ADMIN PANEL */}
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<Navigate to="dashboard" replace />} />
+        {/* Need Add login page here  */}
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="question-papers" element={<QuestionPaper />} />
         <Route path="orders" element={<Orders />} />
