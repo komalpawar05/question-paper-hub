@@ -49,7 +49,7 @@ const FeaturedPapers: React.FC<FeaturedPapersProps> = ({ papers }) => {
         {/* ✅ React Router Link */}
         <div className="text-center mt-6">
           <Link
-            to="/browse"
+            to="/student/browse"
             className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
           >
             View All Papers →
