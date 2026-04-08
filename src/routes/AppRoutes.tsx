@@ -5,15 +5,19 @@ import QuestionPaper from "../pages/admin/QuestionPapers";
 import Orders from "../pages/admin/Orders";
 import AdminLogin from "../pages/admin/AdminLogin";
 import StudentHome from "../pages/student/StudentHome";
+import Browse from "../pages/student/Browse";
+import papers from "../data/papers";
+import Cart from "../pages/student/Cart";
+import StudentsOrders from "../pages/student/Orders";
 
 const AppRoutes = () => {
   return (
     <Routes>
 
-      {/* ✅ DEFAULT ROUTE → STUDENT */}
+      {/* DEFAULT ROUTE → STUDENT */}
       <Route path="/" element={<Navigate to="/student" replace />} />
 
-      {/* LOGIN (NO SIDEBAR) */}
+      {/* ADMIN LOGIN */}
       <Route path="/admin/login" element={<AdminLogin />} />
 
       {/* ADMIN PANEL */}
@@ -25,7 +29,22 @@ const AppRoutes = () => {
       </Route>
 
       {/* STUDENT */}
-      <Route path="/student" element={<StudentHome />} />
+      <Route
+        path="/student"
+        element={<StudentHome />}
+      />
+
+      <Route
+        path="/student/browse"
+        element={<Browse papers={papers} />}
+      />
+      <Route
+        path="/student/cart"
+        element={<Cart />} />
+         
+         <Route
+        path="/student/orders"
+        element={<StudentsOrders />} />
 
       {/* 404 */}
       <Route path="*" element={<h1>404 - Page Not Found</h1>} />

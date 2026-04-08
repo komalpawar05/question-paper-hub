@@ -21,40 +21,25 @@ import Topbar from "../../components/Topbar";
 import FeatureCard from "../../components/student/FeatureCard";
 import CategoryCard from "../../components/student/CategoryCard";
 import StatCard from "../../components/student/StatCard";
-import { MdAdminPanelSettings } from "react-icons/md";
 import Footer from "../../components/student/Footer";
 import Testimonials from "../../components/student/Testimonials";
+import FeaturedPapers from "../../components/student/FeaturedPapers";
+import type { Paper } from "../../data/papers";
+import papers from "../../data/papers";
+import TopbarActions from "../../components/student/TopbarActions";
 
+interface StudentHomeProps {
+  papers: Paper[];
+}
 const StudentHome = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
 
       {/* ✅ Reusable Topbar */}
-      <Topbar
-        title="QuestionHub"
-        rightContent={
-          <>
-            <Link to="/browse" className="text-sm font-medium text-gray-600 hover:text-blue-500">
-              Browse Papers
-            </Link>
-
-            <Link to="/orders" className="text-sm font-medium text-gray-600 hover:text-blue-500">
-             My Orders
-            </Link>
-
-            <Link to="/cart" className="relative text-gray-600 hover:text-blue-500">
-              <FaShoppingCart size={18} />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
-                0
-              </span>
-            </Link>
-            <Link to="/admin/login" className=" flex text-sm font-medium text-gray-600 hover:text-blue-500">
-            <MdAdminPanelSettings size={20} />
-              Admin
-            </Link>
-          </>
-        }
-      />
+             <Topbar
+          title="QuestionHub"
+          rightContent={<TopbarActions />}
+        />
 
       {/* ================= HERO ================= */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 text-center px-4">
@@ -125,6 +110,7 @@ const StudentHome = () => {
           <CategoryCard icon={<FaChartLine />} name="Economics" />
         </div>
       </section>
+      <FeaturedPapers papers={papers} />
 
       {/* ================= STATS ================= */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-10">
