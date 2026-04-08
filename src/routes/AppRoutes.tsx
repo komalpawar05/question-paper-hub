@@ -9,6 +9,7 @@ import Browse from "../pages/student/Browse";
 import papers from "../data/papers";
 import Cart from "../pages/student/Cart";
 import StudentsOrders from "../pages/student/Orders";
+import NotFound from "../pages/admin/NotFound404";
 
 const AppRoutes = () => {
   return (
@@ -48,7 +49,7 @@ const AppRoutes = () => {
         element={<StudentsOrders />} />
 
       {/* 404 */}
-      <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+      <Route path="*" element={<NotFound/>} />
 
     </Routes>
   );
